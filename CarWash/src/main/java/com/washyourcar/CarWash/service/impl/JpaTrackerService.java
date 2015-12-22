@@ -23,6 +23,7 @@ public class JpaTrackerService implements TrackerService {
 		return trackerRepository.findAll();
 	}
 
+	// Ovo je probni komentar
 	@Override
 	public Tracker save(Tracker tracker) {
 		return trackerRepository.save(tracker);
