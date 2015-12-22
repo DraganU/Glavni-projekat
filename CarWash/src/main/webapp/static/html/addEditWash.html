@@ -1,0 +1,20 @@
+<h2>Car Wash - Add/edit</h2>
+<hr/>
+<form class="form-horizontal" ng-init="initWash()">
+
+	<div class="form-group">
+		<label class="col-sm-2">Name </label>
+		<div class="col-sm-6"> <input class="form-control" ng-model="wash.name" /> </div>
+		<div class="col-sm-4"></div>
+	<div class="col-sm-12"></div>
+		<label class="col-sm-2">Price </label>
+		<div class="col-sm-6"> <input class="form-control" ng-model="wash.price" /> </div>
+		<div class="col-sm-4"></div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-success" ng-click="saveWash()">Save</button>
+		</div>
+	</div>
+</form>

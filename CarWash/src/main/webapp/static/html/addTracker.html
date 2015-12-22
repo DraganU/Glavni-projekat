@@ -1,0 +1,26 @@
+
+<h2>Car Wash - Add Receipt</h2>
+<hr />
+
+<form class="form-horizontal" ng-init="getWashes()">
+	
+	<div class="form-group">
+		<label class="col-sm-1">Name </label>
+		<div class="col-sm-6">
+			<select class="form-control"
+				ng-options="wash as wash.name for wash in washes"
+				ng-model="washSelected">
+			</select>
+		</div>
+	</div>
+
+
+<hr/>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button class="btn btn-success" ng-click="saveTracker()">Save</button>
+			</div>
+		</div>
+	</div>
+</form>

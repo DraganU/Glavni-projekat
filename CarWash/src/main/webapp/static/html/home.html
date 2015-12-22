@@ -1,0 +1,59 @@
+
+<h1 class="page-header">Dashboard</h1>
+<div class="row">
+
+	<div class="col-xs-4 col-md-4">
+		<a href="#/washes/add" class="thumbnail text-center"> <span
+			class="glyphicon glyphicon-plus gi-5x "></span>
+			<h3>Add new wash</h3>
+		</a>
+	</div>
+
+	<div class="col-xs-4 col-md-4">
+		<a href="#/washes" class="thumbnail text-center"> <span
+			class="glyphicon glyphicon-list gi-5x "></span>
+			<h3>List of washes</h3>
+		</a>
+	</div>
+
+	<div class="col-xs-4 col-md-4">
+		<a href="#/tracker/add" class="thumbnail text-center"> <span
+			class="glyphicon glyphicon-plus gi-5x "></span>
+			<h3>Add new receipt</h3>
+		</a>
+	</div>
+	<!-- <div class="col-xs-6 col-md-3">
+			<a href="#/washes" class="thumbnail text-center">
+			<span class="glyphicon glyphicon-plus gi-5x "></span>
+			<h3>Add new wash</h3>
+			</a>
+		</div>  -->
+</div>
+
+<div ng-controller="WashController" ng-init="getTrackers()">
+	<h3 class="sub-header">Washed cars:</h3>
+	<table class="table table-bordered table-hover table-striped"
+		ng-init="getWashes()">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="tracker in trackers">
+				<td>{{ tracker.id }}</td>
+				<td>{{ tracker.wash.name }}</td>
+				<td>{{ tracker.wash.price}}</td>
+				<td>{{ tracker.date}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<td colspan="2" class="text-right">Total:</td>
+			<td colspan="2" class="text-left">{{getTotal()}} (euros)</td>
+		</tfoot>
+	</table>
+</div>

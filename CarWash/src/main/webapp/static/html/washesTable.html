@@ -1,0 +1,32 @@
+
+
+<table class="table table-bordered table-hover table-striped" ng-init="getWashes()">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="wash in washes"">
+			<td>{{ wash.id }}</td>
+			<td>{{ wash.name  }}</td>
+			<td>{{ wash.price}} </td>
+			<td>
+				<button type="button" class="btn btn-danger btn-sm" ng-click="deleteWash(wash, $index)">Delete</button> 
+				<a class="btn btn-default btn-sm" href="#/washes/edit/{{ wash.id }}">Edit</a>
+			</td>
+		</tr>
+	</tbody>
+	<!-- <tfoot>
+        <td colspan="4">
+          <div class="col-md-12 text-center">     
+            <span ng-repeat="i in getArr(totalPages)" ng-click="changePage(i-1)"
+                  class="btn btn-default btn-sm" ng-class="page == i-1 ? 'btn-danger' : '';"> {{i}}
+              </span>
+              </div>       
+        </td>
+      </tfoot> -->
+</table>
