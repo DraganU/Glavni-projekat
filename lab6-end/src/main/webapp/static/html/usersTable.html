@@ -1,0 +1,57 @@
+<input ng-model="search">
+<button class="btn btn-default" ng-click="getUsers()">Search</button>
+<button class="btn btn-default" ng-click="search=null; getUsers()">Clear</button>
+<label> Has logs <input type="checkbox" ng-model="logss"></label>
+
+<table class="table table-bordered table-hover table-striped" ng-init="getUsers()">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Email</th>
+			<th>Logs</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in users" ng-hide="user.logCount==0 && logss">
+			<td>{{ user.id }}</td>
+			<td>{{ user.email }}</td>
+			<td><a href="#/users/{{user.id}}/logsUser">{{user.logCount}}</a></td>
+			<td>
+				<button type="button" class="btn btn-danger btn-sm" ng-click="deleteUser(user, $index)">Delete</button> <a
+				class="btn btn-default btn-sm" href="#/users/edit/{{ user.id }}">Edit</a>
+				<a class="btn btn-default btn-sm" href="#/users/view/{{ user.id }}">View</a>	
+			</td>
+			
+			
+		</tr>
+	</tbody>
+	<tfoot>
+	<!-- label label-default -->
+		<td colspan="4">
+			<div class="col-md-12 text-center">
+				<span ng-repeat="i in getArr(totalPages)" ng-click="changePage2(i-1)"
+					class="btn btn-default btn-sm" ng-class="page == i-1 ? 'btn-danger' : '';"> {{i}} </span>
+			</div>
+		</td>
+	</tfoot>
+</table>
+
+<div class="alert alert-success" role="alert" ng-show="succ">User {{user.id}}, {{user.firstname}} je uspesno obrisan</div>
+
+<div class="alert alert-danger" role="alert" ng-show="err">User {{user.id}}, {{user.firstname}} nije uspesno obrisan</div>
+
+<div class="col-md-12 text-right">
+	<button class="btn btn-default" ng-click="changePage2(page -1)"
+		ng-disabled="page == 0">Previous</button>
+	<span class="label label-default"> {{ page + 1 }}</span>
+	<button class="btn btn-default" ng-click="changePage2(page +1)"
+		ng-disabled="page ==totalPages -1">Next</button>
+</div>
+
+
+<div class="col-md-12 text-center">
+	<span ng-hide="successMessage || errorMessage"
+		class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+	<span class="label label-danger">{{ errorMessage }}</span>
+</div>

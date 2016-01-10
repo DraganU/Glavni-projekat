@@ -1,0 +1,59 @@
+<input ng-model= "search">
+<button class="btn btn-default" ng-click="getActivities()">Search</button>
+<button class="btn btn-default" ng-click="search = null; getActivities()">Clear</button>
+<label> Show hidden <input type="checkbox" ng-model="checkbox"></label>
+<label> Has logs <input type="checkbox" ng-model="logss"></label>
+
+<table class="table table-bordered table-hover table-striped" ng-init="getActivities()">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Logs</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="activity in activities" ng-hide="activity.hidden || (activity.logCount == 0 && logss)" 
+												ng-show="(activity.hidden && checkbox)">
+			<td>{{ activity.id }}</td>
+			<td>{{ activity.name  }}</td>
+			<td><a href="#/activities/{{activity.id}}/logsActivity"> {{ activity.logCount}} </a></td>
+			<td>
+				<button type="button" class="btn btn-danger btn-sm" ng-click="deleteActivity(activity, $index)">Delete</button> 
+				<a class="btn btn-default btn-sm" href="#/activities/edit/{{ activity.id }}">Edit</a>
+				<a class="btn btn-default btn-sm" href="#/activities/view/{{ activity.id }}">View</a>
+				<button type="button" class="btn btn-default btn-sm" ng-click="hideActivity(activities, $index)" ng-hide="activity.hidden">Hide</button>
+				<button type="button" class="btn btn-default btn-sm" ng-click="hideActivity(activities, $index)" ng-show="activity.hidden">UnHide</button>
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+        <td colspan="4">
+          <div class="col-md-12 text-center">     
+            <span ng-repeat="i in getArr(totalPages)" ng-click="changePage(i-1)"
+                  class="btn btn-default btn-sm" ng-class="page == i-1 ? 'btn-danger' : '';"> {{i}}
+              </span>
+              </div>       
+        </td>
+      </tfoot>
+</table>
+
+
+<div class="alert alert-success" role="alert" ng-show="succ"> 
+Aktivnost {{activity.id}}, {{activity.name}} je uspesno obrisana</div>
+
+<div class="alert alert-danger" role="alert" ng-show="err">
+ Aktivnost {{activity.id}}, {{activity.name}} nije uspesno obrisana</div>
+
+
+ <div class="col-md-12 text-right">
+	<button class="btn btn-default" ng-click="changePage(page -1)" ng-disabled="page == 0" > Previous </button>
+	<span class="label label-default"> {{ page + 1 }}</span>
+	<button class="btn btn-default" ng-click="changePage(page +1)" ng-disabled="page ==totalPages -1"> Next </button>
+</div> 
+
+<div class="col-md-12 text-center">
+    <span ng-hide="successMessage || errorMessage" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+    <span class="label label-danger">{{ errorMessage }}</span>
+</div>

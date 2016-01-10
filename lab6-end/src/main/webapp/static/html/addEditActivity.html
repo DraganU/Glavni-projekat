@@ -1,0 +1,31 @@
+<h1>WAFEPA - Add/edit activity</h1>
+
+<form class="form-horizontal" ng-init="initActivity(); getActivities()">
+
+    <div class="form-group">
+        <label class="col-sm-2">Name </label>
+        <div class="col-sm-6">
+            <input class="form-control" ng-model="activity.name" ng-disabled="dis"/>
+        </div>
+    </div>     
+    <div class="form-group">
+        <label class="col-sm-2">Hidden </label>
+        <div class="col-sm-6">
+			<select class="form-control" ng-model="activity.hidden" ng-disabled="dis">
+				<option value="false">No</option>
+        		<option value="true">Yes</option>
+			</select>
+		</div>    
+    </div> 
+    
+    <button type="button" class="btn btn-danger btn-sm" ng-show="activity.id"   ng-click="deleteActivityEdit(activity)">Delete</button>
+ 
+
+    <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-default" ng-click="dis=true; saving=true; show=true; starttimer()" ng-disabled="dis">Save</button>
+      <button class="btn btn-default" ng-show="show" ng-disabled="saving" >Saving in... {{timer | date : format}}</button>
+      <button class="btn btn-default" ng-click="dis=false; show=false; stopTimer()" ng-show="show" >Revert</button>
+    </div>
+  </div>
+</form>

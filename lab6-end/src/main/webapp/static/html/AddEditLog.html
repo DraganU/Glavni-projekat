@@ -1,0 +1,102 @@
+<h1>WAFEPA - Add/edit log</h1>
+
+<form class="form-horizontal" ng-init="initLog()">
+
+
+	<div class="form-group"  ng-init="initLog()">
+		<label class="col-sm-1">User </label>
+		<div class="col-sm-6">
+			<select class="form-control"
+				ng-options="user as user.email for user in users"
+				ng-model="userSelected">
+			</select>
+		</div>
+	</div>
+	
+<hr/>
+
+	<div class="form-group">
+		<label class="col-sm-1">Activity </label>
+		<div class="col-sm-6">
+			<select class="form-control"
+				ng-options="activity as activity.name for activity in activities"
+				ng-model="activitySelected">
+			</select>
+		</div>
+	</div>
+<hr/>
+	<!-- <div class="form-group">
+		<label class="col-sm-2">Date </label>
+		<div class="col-sm-6">
+			<input class="form-control" ng-model="log.date" />
+		</div>
+	</div> -->
+
+	<!-- ---------------------------------DATEPICKER ----------------------------->
+	<div>
+		<!-- <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em>
+		</pre> -->
+
+		<!-- <h4>Inline</h4>
+		<div style="display: inline-block; min-height: 290px;">
+			<uib-datepicker ng-model="dt" min-date="minDate" show-weeks="true"
+				class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
+		</div> -->
+
+<!------------------------- POPUP PICKER --------------------------------------------------- -->
+		<label class="col-sm-1">Date</label>
+		<div class="row">
+			<div class="col-md-6">
+				<p class="input-group">
+					<input type="text" class="form-control" 
+					uib-datepicker-popup="{{format}}" 
+					ng-model="dt"
+					is-open="status.opened" 
+					min-date="2010-01-01" max-date="maxDate" 
+					datepicker-options="dateOptions"
+					date-disabled="disabled(date, mode)" 
+					ng-required="true" 
+					close-text="Close" 
+					show-weeks="false"/> 
+					
+					<span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="open($event)">
+					<i class="glyphicon glyphicon-calendar"></i>
+						</button>
+					</span>
+				</p>
+			</div>
+		</div>
+		<div class="row" ng-hide="hide=true">
+		<label class="col-sm-1">Format:</label>
+			<div class="col-md-6">
+				 <select class="form-control"
+					ng-model="format" ng-options="f for f in formats"><option></option></select>
+			</div>
+		</div>
+		<br />
+		<button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+		<!-- <button type="button" class="btn btn-sm btn-default"ng-click="setDate(2015, 01, 01)">2015-01-01</button> -->
+		<button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
+		<!-- <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button> -->
+	</div>
+	<hr/>
+<!-- ------------------------------DATEPICKER END --------------------------------------------- -->
+	<div class="form-group">
+		<label class="col-sm-3">Duration (format 1h 12min) </label>
+		<div class="col-sm-6">
+			<input class="form-control" ng-model="x" />
+			<label >h</label>
+			<input class="form-control" ng-model="y" />
+			<label >min</label>
+		</div>
+	</div>
+	<div class="alert alert-success" role="alert" ng-show="errr"> 
+		Niste ispunili polje pravilnim formatom pokusajte opet </div>
+<hr/>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-default" ng-click="saveLog()">Save</button>
+		</div>
+	</div>
+</form>

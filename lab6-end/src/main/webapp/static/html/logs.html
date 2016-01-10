@@ -1,0 +1,36 @@
+<div ng-init="getLogs()">
+	<h1>Logs</h1>
+
+	<!-- <h2 > activity {{curLog.activity.name}} </h2>
+	<div ng-repeat="log in logs | unique: 'user.firstname' ">
+	<h2 >Logs for user - {{log.user.firstname}}</h2>
+	</div> -->
+	
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Date</th>
+				<th>Duration</th>
+				<th>Activity</th>
+				<th>User</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr ng-repeat="log in logs">
+				<td>{{ log.id }}</td>
+				<td>{{ log.date }}</td>
+				<td>{{ log.duration }}{{minut}}</td>
+				<td>{{ log.activity.name }}</td>
+				<td>{{ log.user.email }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="col-md-12 text-center">
+		<span ng-hide="successMessage || errorMessage"
+			class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+		<span class="label label-danger">{{ errorMessage }}</span>
+	</div>
+</div>
