@@ -1,0 +1,46 @@
+<h4>Teams <span >({{totalElements}})</span></h4>
+
+<table class="table table-bordered table-hover table-striped" ng-init="getTeams()">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Player 1</th>
+			<th>Player 2</th>
+			<th>Player 3</th>
+			<th>Player 4</th>
+			<th>Player 5</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="team in teams">
+			<td>{{ team.id }}</td>
+			<td>{{ team.name }}</td>
+			<td>{{ team.player1 }}</td>
+			<td>{{ team.player2 }}</td>
+			<td>{{ team.player3 }}</td>
+			<td>{{ team.player4 }}</td>
+			<td>{{ team.player5 }}</td>
+			
+		</tr>
+	</tbody>
+	
+	<tfoot>
+	<!-- label label-default -->
+		<td colspan="7">
+			<div class="col-md-12 text-center">
+				<span ng-repeat="i in getArr(totalPages)" ng-click="changePage2(i-1)"
+					class="btn btn-default btn-sm" ng-class="page == i-1 ? 'btn-danger' : '';"> {{i}} </span>
+			</div>
+		</td>
+	</tfoot>
+</table>
+
+<div class="col-md-12 text-right">
+	<button class="btn btn-default" ng-click="changePage2(page -1)"
+		ng-disabled="page == 0">Previous</button>
+	<span class="label label-default"> {{ page + 1 }}</span>
+	<button class="btn btn-default" ng-click="changePage2(page +1)"
+		ng-disabled="page ==totalPages -1">Next</button>
+</div>

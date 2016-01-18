@@ -1,0 +1,2 @@
+basketballApp = angular.module('basketballApp', ['basketballApp.controllers','basketballApp.directives', 'basketballApp.routes','basketballApp.services',
+                                          'ui.bootstrap']);

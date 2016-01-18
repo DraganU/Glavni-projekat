@@ -1,0 +1,70 @@
+<h3>Single Player</h3>
+
+<table class="table table-bordered table-hover table-striped" ng-init="initStat()">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Fist Name</th>
+			<th>Last Name</th>
+			<th>Team</th>
+			<th>Leag</th>
+			<th>Position 1</th>
+			<th>Position 2</th>
+			<th>Year</th>	
+		</tr>
+	</thead>
+	<tbody>
+		<tr >
+			<td>{{ player.id }}</td>
+			<td>{{ player.firstname }}</td>
+			<td>{{ player.lastname }}</td>
+			<td>{{ player.team}}</td>
+			<td>{{ player.leag}}</td>
+			<td>{{ player.pos1}}</td>
+			<td>{{ player.pos2}}</td>
+			<td>{{ player.year}}</td>
+		</tr>
+	</tbody>
+	<thead>
+		<tr>
+			<th>GP</th>
+			<th>MIN</th>
+			<th>PTS</th>
+			<th>OREB</th>
+			<th>DREB</th>
+			<th>ASTS</th>
+			<th>STL</th>
+			<th>BLK</th>
+			<th>TO</th>
+			<th>REB</th>
+			<th>PF</th>
+			<th>FGA</th>
+			<th>FGM</th>
+			<th>FTA</th>
+			<th>FTM</th>
+			<th>TPA</th>
+			<th>TPM</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr >
+			<td>{{ stat.gp}}</td>
+			<td>{{ stat.min}}</td>
+			<td>{{ stat.pts}}</td>
+			<td>{{ stat.oreb}}</td>
+			<td>{{ stat.dreb}}</td>
+			<td>{{ stat.asts}}</td>
+			<td>{{ stat.stl}}</td>
+			<td>{{ stat.blk}}</td>
+			<td>{{ stat.to}}</td>
+			<td>{{ stat.reb}}</td>
+			<td>{{ stat.pf}}</td>
+			<td>{{ stat.fga}}</td>
+			<td>{{ stat.fgm}}</td>
+			<td>{{ stat.fta}}</td>
+			<td>{{ stat.ftm}}</td>
+			<td>{{ stat.tpa}}</td>
+			<td>{{ stat.tpm}}</td>
+		</tr>
+	</tbody>
+</table>

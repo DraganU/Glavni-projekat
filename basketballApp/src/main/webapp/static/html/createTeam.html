@@ -1,0 +1,78 @@
+<h2>Create team</h2>
+
+
+<form class="form-horizontal" ng-init="getPlayers()">
+
+	<hr />
+	<div class="form-group">
+        <label class="col-sm-2">Name </label>
+        <div class="col-sm-6">
+            <input class="form-control" ng-model="team.name"/>
+        </div>
+    </div>  
+    
+    <hr />
+    <b><p>Please select your players:</p></b>
+	<hr />
+	<div class="form-group">
+		<label class="col-sm-2">1st Player </label>
+		<div class="col-sm-6">
+			<select class="form-control"
+				ng-options="player as player.firstname + ' ' + player.lastname + ',' + player.team for player in players" class="span3"
+				ng-model="team.player1">
+			</select>
+		</div>
+	</div>
+
+	<hr />
+
+	<div class="form-group">
+		<label class="col-sm-2">2nd Player </label>
+		<div class="col-sm-6">
+			<select class="form-control"
+				ng-options="player as player.firstname + ' ' + player.lastname + ',' + player.team for player in players" class="span3"
+				ng-model="team.player2">
+			</select>
+		</div>
+	</div>
+	<hr />
+
+	<div class="form-group">
+		<label class="col-sm-2">3th Player </label>
+		<div class="col-sm-6">
+			<select class="form-control"
+				ng-options="player as player.firstname + ' ' + player.lastname + ',' + player.team for player in players" class="span3"
+				ng-model="team.player3">
+			</select>
+		</div>
+	</div>
+	<hr />
+
+	<div class="form-group">
+		<label class="col-sm-2">4th Player </label>
+		<div class="col-sm-6">
+			<select class="form-control"
+				ng-options="player as player.firstname + ' ' + player.lastname + ',' + player.team for player in players" class="span3"
+				ng-model="team.player4">
+			</select>
+		</div>
+	</div>
+	<hr />
+
+	<div class="form-group">
+		<label class="col-sm-2">5th Player </label>
+		<div class="col-sm-6">
+			<select class="form-control"
+				ng-options="player as player.firstname + ' ' + player.lastname + ',' + player.team for player in players" class="span3"
+				ng-model="team.player5">
+			</select>
+		</div>
+	</div>
+	
+	<hr />
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-success" ng-click="saveTeam()">Create team</button>
+		</div>
+	</div>
+</form>

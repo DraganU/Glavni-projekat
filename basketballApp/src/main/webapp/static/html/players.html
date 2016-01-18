@@ -1,0 +1,41 @@
+
+<h1>Players <span >({{totalElements}})</span></h1>
+
+<table class="table table-bordered table-hover table-striped" ng-init="getPlayers()">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="player in players">
+			<td>{{ player.id }}</td>
+			<td>{{ player.firstname }}</td>
+			<td>{{ player.lastname }}</td>
+			<td>
+				<a class="btn btn-default btn-sm" href="#/players/{{ player.id }}">Details</a>	
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+	<!-- label label-default -->
+		<td colspan="4">
+			<div class="col-md-12 text-center">
+				<span ng-repeat="i in getArr(totalPages)" ng-click="changePage2(i-1)"
+					class="btn btn-default btn-sm" ng-class="page == i-1 ? 'btn-danger' : '';"> {{i}} </span>
+			</div>
+		</td>
+	</tfoot>
+</table>
+
+<div class="col-md-12 text-right">
+	<button class="btn btn-default" ng-click="changePage2(page -1)"
+		ng-disabled="page == 0">Previous</button>
+	<span class="label label-default"> {{ page + 1 }}</span>
+	<button class="btn btn-default" ng-click="changePage2(page +1)"
+		ng-disabled="page ==totalPages -1">Next</button>
+</div>
+
