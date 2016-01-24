@@ -25,6 +25,16 @@ carWashApp.config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'static/html/addTracker.html',
 		controller : 'WashController'
 	})
+	
+	.when('/reports', {
+		templateUrl : 'static/html/reports.html',
+		controller : 'WashController'
+	})
+	
+	.when('/analytics', {
+		templateUrl : 'static/html/analytics.html',
+		controller : 'WashController'
+	})
 
 	.otherwise({
 		redirectTo : '/'

@@ -3,6 +3,26 @@ carWashApp = angular.module('carWashApp.controllers', []);
 carWashApp.controller('WashController', function($scope, $http, $location,
 		$routeParams, washRestService) {
 
+	
+	// CHARTS -----------------------------------
+	// BAR chart
+	$scope.labels = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'Sep', 'Oct', 'Nov', 'Dec'];
+	  $scope.series = ['Small Cars', 'Medium Cars', 'Big Cars'];
+
+	  $scope.data = [
+	    [65, 59, 80, 81, 56, 55, 40, 22, 10 , 80, 33, 140],
+	    [28, 48, 40, 19, 86, 27, 90, 48, 28, 62, 9, 6],
+	    [48, 28, 62, 9, 6, 87, 42, 65, 59, 80, 81, 56]
+	    
+	  ];
+    
+	 // PIE CHART
+	  
+	  $scope.labelsPie = ["Small-Cars", "Medium-Cars", "Big-Cars"];
+	  $scope.dataPie = [300, 500, 100];
+	
+	
+	
 	// GET ALL Washes------------
 	$scope.getWashes = function() {
 
